@@ -1,16 +1,17 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import pokemonListSlice from "./modules/pokemonList/slice";
 
-// também adicionamos o thunk
-import thunk from '@reduxjs/toolkit/dist/redux-thunk'
+const rootReducer = combineReducers({ pokemonList: pokemonListSlice });
 
-// Combine reducers first
-const rootReducer = combineReducers({});
-
-// Now configure the store
 const store = configureStore({
   reducer: rootReducer,
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false, // Disable the SerializableStateInvariantMiddleware
+    }),
 });
 
-export default store;
+export type AppState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 
+export default store;
