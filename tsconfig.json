@@ -32,7 +32,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "src/__tests__/setupTests.jsx"  ],
   "exclude": [
     "node_modules"
   ]
