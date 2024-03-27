@@ -8,8 +8,8 @@ import { Header } from "@/components/Header";
 export default function Home() {
   return (
     <Provider store={store}>
-      <main className="flexflex-col items-center justify-between">
-        <Header></Header>
+      <main className="flex flex-col items-center justify-between">
+        <Header>{""}</Header>
         <PokemonList />
       </main>
     </Provider>
