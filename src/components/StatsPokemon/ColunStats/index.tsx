@@ -38,7 +38,7 @@ export const ColunStats = ({stats}:IColunStatsProps) => {
         <li className={`${styles.piece}`}></li>
         <li className={`${styles.piece}`}></li>
       </ul>
-      <p className="text-gray-400">{stats.stat.name}</p>
+      <p className="text-gray-400 text-[10px] sm:text-sm font-bold text-center">{stats.stat.name}</p>
     </li>
   );
 };

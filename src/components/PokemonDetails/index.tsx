@@ -26,17 +26,18 @@ export const PokemonDetails = ({ pokemon }: IPokemonDetailsProps) => {
 
       <div className="flex flex-wrap">
         <div className="md:w-1/2 w-full">
-          <div className="bg-poke w-[420px] rounded-2xl ">
+          <div className="bg-poke w-[270px] mx-auto md:mx-0 sm:w-[600px] md:w-[350px] xl:w-[420px]  h-[300px] sm:h-[600px] md:h-[350px] xl:h-[420px] rounded-2xl relative ">
             <Image
+              fill
               src={sprites.other["official-artwork"].front_default}
               alt={`${name} oficial artwork image`}
-              width={420}
-              height={420}
+              objectFit="contain"
+              // sizes="(max-width: 420px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
           
             <p className="text-xl mt-4 mb-2.5">Types</p>
-            <div className="flex text-base">
+            <div className="flex text-base mb-5">
               {types.map(({ type }) => (
                 <TagType type={type.name} key={type.name} />
               ))}
