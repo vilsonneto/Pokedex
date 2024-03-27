@@ -6,6 +6,7 @@ import { IdPokemon } from "../IdPokemon";
 import { capitalize } from "@/utils/functions/capitalize";
 import { TagType } from "../TagType";
 import { PokemonCaracteristcs } from "../PokemonCaracteristcs";
+import { StatsPokemon } from "../StatsPokemon";
 
 interface IPokemonDetailsProps {
   pokemon: IPokemon;
@@ -43,6 +44,8 @@ export const PokemonDetails = ({ pokemon }: IPokemonDetailsProps) => {
         </div>
         <div className="md:w-1/2 w-full">
             <PokemonCaracteristcs abilities={abilities} height={height} weight={weight}/>
+
+            <StatsPokemon stats={stats}/>
         </div>
       </div>
     </div>

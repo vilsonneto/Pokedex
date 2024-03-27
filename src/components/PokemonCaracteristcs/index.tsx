@@ -1,7 +1,6 @@
 "use client";
 
 import { ajustCaseListAbilities } from "@/utils/functions/ajustCaseAbilities";
-import { capitalize } from "../../utils/functions/capitalize";
 
 interface IPokemonCaracteristcsProps {
   abilities: {

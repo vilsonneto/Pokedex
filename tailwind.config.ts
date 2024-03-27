@@ -17,6 +17,7 @@ const config: Config = {
       colors: {
         'red': '#E20000',
         'yellow': '#FAAD17',
+        'gray-050': '#A4A4A4',
         'gray-100': '#919191',
         'gray-200': '#616161',
         'gray-300': '#444444',
