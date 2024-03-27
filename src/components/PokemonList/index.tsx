@@ -7,6 +7,7 @@ import { IPokemonListState } from "@/redux/modules/pokemonList/slice";
 import { AppState } from "@/redux/store";
 import { IPokemon } from "@/interfaces/pokemon";
 import { PokemonCard } from "../PokemonCard";
+import { motion } from "framer-motion";
 
 export const PokemonList = () => {
   const { loading, pokemonList, error } = useSelector<
@@ -19,7 +20,7 @@ export const PokemonList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchPokemonListAsync(offset))
+    dispatch(fetchPokemonListAsync(offset));
   }, [offset]);
 
   return (
@@ -32,8 +33,18 @@ export const PokemonList = () => {
           ))}
         </ul>
       )}
-      
-      <button className="" onClick={() => { setOffset(offset + 12)}}>Carregar mais</button>
+
+      <div className=" w-full flex justify-center">
+        <motion.button
+          whileTap={{ scale: 0.85 }}
+          className="px-7 py-4 bg-blue-500 rounded-full text-white m-5"
+          onClick={() => {
+            setOffset(offset + 12);
+          }}
+        >
+          Carregar mais
+        </motion.button>
+      </div>
     </div>
   );
 };
