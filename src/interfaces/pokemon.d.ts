@@ -8,9 +8,9 @@ export interface IPokemon {
       other: any
     };
     abilities: {
-      name: string;
-      url: string;
-    }[];
+      ability: {
+        name: string;
+      }[];
     stats: {
       base_stat: number;
       effort: number;

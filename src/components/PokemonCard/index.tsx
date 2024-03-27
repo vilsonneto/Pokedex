@@ -52,7 +52,7 @@ export const PokemonCard = ({ pokemon }: IPokemonCard) => {
         <h3 className="text-lg font-bold text-gray-400 mb-1">
           {capitalize(name)}
         </h3>
-        <div className="flex">
+        <div className="flex text-sm">
           {types.map(({ type }) => (
             <TagType type={type.name} key={type.name} />
           ))}
