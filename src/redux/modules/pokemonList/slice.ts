@@ -41,6 +41,6 @@ export const pokemonListSlice = createSlice({
   },
 });
 
-export const { addPokemons } = pokemonListSlice.actions;
+export const { resetList } = pokemonListSlice.actions;
 
 export default pokemonListSlice.reducer;
