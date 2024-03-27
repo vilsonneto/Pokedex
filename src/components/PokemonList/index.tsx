@@ -26,7 +26,7 @@ export const PokemonList = () => {
     <div className="w-full max-w-[970px] bg-white rounded-b-lg">
       {loading && <p>Loading pokemon list...</p>}
       {pokemonList && (
-        <ul className="flex flex-wrap justify-evenly p-4">
+        <ul className="flex flex-wrap justify-evenly gap-2 p-4">
           {pokemonList.map((pokemon) => (
             <PokemonCard key={pokemon.id} pokemon={pokemon} />
           ))}

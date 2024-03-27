@@ -39,7 +39,7 @@ export const AnimatedTextWord = ({ text, splitText }: IAnimatedTextWord) => {
 
   return (
     <motion.div
-      style={{ overflow: "hidden", display: "flex", fontSize: "2rem" }}
+      style={{ overflow: "hidden", display: "flex" }}
       variants={container}
       initial="hidden"
       animate="visible"
