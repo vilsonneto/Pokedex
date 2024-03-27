@@ -21,6 +21,8 @@ const config: Config = {
         'gray-200': '#616161',
         'gray-300': '#444444',
         'gray-400': '#313131',
+        'gray-500': '#212121',
+        'blue-150': "#30a7d7"
       },
       fontFamily: {
         'primary': ['"Roboto"', 'sans-serif'],
