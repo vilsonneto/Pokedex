@@ -1,26 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { fetchPokemonListAsync } from "./thunk";
-import type { IPokemon } from "../../../interfaces/pokemon"
+import type { IPokemon } from "../../../interfaces/pokemon";
 
-export interface IPokemonListState  {
+export interface IPokemonListState {
   loading: boolean;
   pokemonList: Array<IPokemon | null>;
   error: null | string | undefined;
 }
 
-const initialState: IPokemonListState  = {
+const initialState: IPokemonListState = {
   loading: false,
   pokemonList: [],
   error: null,
 };
 
-const pokemonListSlice = createSlice({
+export const pokemonListSlice = createSlice({
   name: "pokemonList",
   initialState,
   reducers: {
-    addPokemons: (state, action: PayloadAction<IPokemon[]>) => {
-      state.pokemonList = [...state.pokemonList, ...action.payload];
+    resetList: (state, action: PayloadAction<IPokemon[]>) => {
+      state.pokemonList = [];
     },
   },
   extraReducers: (builder) => {
@@ -29,13 +29,15 @@ const pokemonListSlice = createSlice({
         state.loading = true;
       })
       .addCase(fetchPokemonListAsync.fulfilled, (state, action) => {
-        state.pokemonList = action.payload;
+        if (action.payload[0]?.name !== state.pokemonList[0]?.name) {
+          state.pokemonList.push(...action.payload);
+        }
         state.loading = false;
       })
       .addCase(fetchPokemonListAsync.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error ? action.error.message : null;
-      })
+      });
   },
 });
 
