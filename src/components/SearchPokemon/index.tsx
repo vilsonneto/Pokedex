@@ -4,16 +4,17 @@ import { fetchSearchPokemonAsync } from "@/redux/modules/pokemonList/thunk";
 import { AppDispatch } from "@/redux/store";
 import { useDispatch } from "react-redux";
 import { IoSearch } from "react-icons/io5";
+import { useState } from "react";
 
 export const SearchPokemon = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const [value, setValue] = useState('')
+
   return (
     <form
       className="flex gap-2 h-9"
       onSubmit={(event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const value = event.target[0].value;
-        console.log(value);
         dispatch(fetchSearchPokemonAsync(value));
       }}
     >
@@ -22,6 +23,7 @@ export const SearchPokemon = () => {
         placeholder="Search by name or type"
         type="text"
         id="search"
+        onChange={(event)=>setValue(event.target.value)}
       />
       <button
         className="h-9 w-9 bg-yellow rounded-md flex justify-center items-center"
