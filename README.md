@@ -105,6 +105,6 @@ $ npm run dev
 # O servidor inciará na porta:3000 - acesse <http://localhost:3000>
 
 ```
-
-[url do site](https://vilsonneto-pokedex.vercel.app/)
-[Figma](https://www.figma.com/file/QxYkG6YRdSkYbwDOKijysY/Untitled?type=design&node-id=1-2&mode=design&t=Jri5cWVe9pQI2AZ5-0)
+### Links importantes
+- [url do site](https://vilsonneto-pokedex.vercel.app/)
+- [Figma](https://www.figma.com/file/QxYkG6YRdSkYbwDOKijysY/Untitled?type=design&node-id=1-2&mode=design&t=Jri5cWVe9pQI2AZ5-0)
