@@ -19,12 +19,12 @@ export default function DynamicPage() {
       setCurrentPokemon(data);
     };
 
-    fetchPokemon(pokemonName);
+    fetchPokemon(String(pokemonName).toLowerCase());
   }, [pokemonName]);
 
   return (
     <>
-      <Header/>
+      <Header>{""}</Header>
       <main className="flex flex-col items-center justify-between">
         {
             currentPokemon && (
