@@ -106,5 +106,6 @@ $ npm run dev
 
 ```
 ### Links importantes
-- [url do site](https://vilsonneto-pokedex.vercel.app/)
+- [URL do site](https://vilsonneto-pokedex.vercel.app/)
 - [Figma](https://www.figma.com/file/QxYkG6YRdSkYbwDOKijysY/Untitled?type=design&node-id=1-2&mode=design&t=Jri5cWVe9pQI2AZ5-0)
+- [PokeAPI](https://pokeapi.co/docs/v2)
