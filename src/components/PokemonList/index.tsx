@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPokemonListAsync } from "@/redux/modules/pokemonList/thunk";
 import { IPokemonListState } from "@/redux/modules/pokemonList/slice";
-import { AppState } from "@/redux/store";
+import { AppDispatch, AppState } from "@/redux/store";
 import { IPokemon } from "@/interfaces/pokemon";
 import { PokemonCard } from "../PokemonCard";
 import { motion } from "framer-motion";
@@ -15,13 +15,13 @@ export const PokemonList = () => {
     IPokemonListState
   >((state) => state.pokemonList);
 
-  const [offset, setOffset] = useState(null);
+  const [offset, setOffset] = useState<number>(0);
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     dispatch(fetchPokemonListAsync(offset));
-  }, [offset]);
+  }, [offset, dispatch]);
 
   return (
     <div className="w-full max-w-[970px] bg-white rounded-b-lg">
@@ -29,7 +29,8 @@ export const PokemonList = () => {
       {pokemonList && (
         <ul className="flex flex-wrap justify-evenly gap-2 p-4">
           {pokemonList.map((pokemon) => (
-            <PokemonCard key={pokemon.id} pokemon={pokemon} />
+            pokemon &&
+            <PokemonCard key={pokemon?.id} pokemon={pokemon} />
           ))}
         </ul>
       )}
