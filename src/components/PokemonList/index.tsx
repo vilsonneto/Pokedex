@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPokemonListAsync } from "@/redux/modules/pokemonList/thunk";
+import { fetchPokemonListDetailsAsync, fetchSearchPokemonAsync } from "@/redux/modules/pokemonList/thunk";
 import { IPokemonListState } from "@/redux/modules/pokemonList/slice";
 import { AppState } from "@/redux/store";
 import { IPokemon } from "@/interfaces/pokemon";
@@ -20,7 +20,11 @@ export const PokemonList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchPokemonListAsync(offset));
+    // dispatch(fetchSearchPokemonAsync("wee"));
+    if(true) {
+    } else {
+      dispatch(fetchPokemonListDetailsAsync(offset));
+    }
   }, [offset]);
 
   return (
@@ -33,7 +37,7 @@ export const PokemonList = () => {
           ))}
         </ul>
       )}
-
+      
       <div className=" w-full flex justify-center">
         <motion.button
           whileTap={{ scale: 0.85 }}
@@ -44,6 +48,16 @@ export const PokemonList = () => {
         >
           Carregar mais
         </motion.button>
+
+        
+        <button
+          className="px-7 py-4 bg-blue-500 rounded-full text-white m-5"
+          onClick={() => {
+            dispatch(fetchSearchPokemonAsync("weedle"));
+          }}
+        >
+          Fetch Search
+        </button>
       </div>
     </div>
   );
