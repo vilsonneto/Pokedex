@@ -1,5 +1,3 @@
-"use client";
-
 import { IPokemon } from "@/interfaces/pokemon";
 import Image from "next/image";
 import { IdPokemon } from "../IdPokemon";
@@ -14,9 +12,10 @@ interface IPokemonCard {
 
 export const PokemonCard = ({ pokemon }: IPokemonCard) => {
   const { sprites, name, types, id } = pokemon;
+  const image = sprites?.other?.["official-artwork"]?.front_default;
 
-  const randomX = Math.random() < 0.5 ? -50 : 50
-  const randomY = Math.random() < 0.5 ? -50 : 50
+  const randomX = Math.random() < 0.5 ? -50 : 50;
+  const randomY = Math.random() < 0.5 ? -50 : 50;
 
   return (
     <motion.div
@@ -25,7 +24,7 @@ export const PokemonCard = ({ pokemon }: IPokemonCard) => {
       initial={{
         opacity: 0,
         x: randomX,
-        y: randomY
+        y: randomY,
       }}
       whileInView={{
         opacity: 1,
@@ -33,22 +32,24 @@ export const PokemonCard = ({ pokemon }: IPokemonCard) => {
         y: 0,
         transition: {
           duration: 0.3,
-          ease: 'easeOut',
-        }
+          ease: "easeOut",
+        },
       }}
       viewport={{ once: true }}
     >
       <li className="w-52 mb-5">
         <Link href={`/pokemon/${name}`}>
-        <div className="bg-poke w-auto rounded-2xl cursor-pointer">
-          <Image
-            src={sprites.other["official-artwork"].front_default}
-            alt={`${name} oficial artwork image`}
-            width={200}
-            height={200}
-            />
-        </div>
-            </Link>
+          <div className="bg-poke w-auto rounded-2xl cursor-pointer">
+            {image && (
+              <Image
+                src={image}
+                alt={`${name} official artwork image`}
+                width={200}
+                height={200}
+              />
+            )}
+          </div>
+        </Link>
         <p className="text-sm text-gray-100 mb-4">
           <IdPokemon id={id} />
         </p>

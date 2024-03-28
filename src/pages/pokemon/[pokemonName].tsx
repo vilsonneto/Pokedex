@@ -24,7 +24,7 @@ export default function DynamicPage() {
 
   return (
     <>
-      <Header>{""}</Header>
+      <Header/>
       <main className="flex flex-col items-center justify-between">
         {
             currentPokemon && (

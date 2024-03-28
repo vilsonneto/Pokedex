@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { fetchPokemonListAsync } from "./thunk";
+import { fetchPokemonListDetailsAsync, fetchSearchPokemonAsync } from "./thunk";
 import type { IPokemon } from "../../../interfaces/pokemon";
 
 export interface IPokemonListState {
@@ -25,16 +25,31 @@ export const pokemonListSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchPokemonListAsync.pending, (state) => {
+      .addCase(fetchPokemonListDetailsAsync.pending, (state) => {
         state.loading = true;
       })
-      .addCase(fetchPokemonListAsync.fulfilled, (state, action) => {
+      .addCase(fetchPokemonListDetailsAsync.fulfilled, (state, action) => {
         if (action.payload[0]?.name !== state.pokemonList[0]?.name) {
           state.pokemonList.push(...action.payload);
         }
         state.loading = false;
       })
-      .addCase(fetchPokemonListAsync.rejected, (state, action) => {
+      .addCase(fetchPokemonListDetailsAsync.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error ? action.error.message : null;
+      })
+
+      builder
+      .addCase(fetchSearchPokemonAsync.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchSearchPokemonAsync.fulfilled, (state, action) => {
+        if (action.payload[0]?.name !== state.pokemonList[0]?.name) {
+          state.pokemonList = action.payload;
+        }
+        state.loading = false;
+      })
+      .addCase(fetchSearchPokemonAsync.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error ? action.error.message : null;
       });
