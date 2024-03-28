@@ -1,31 +1,33 @@
-export interface IPokemon {
+export interface IAbility {
+  ability: {
     name: string;
-    url: string;
-    id: number;
-    height: number;
-    weight: number;
-    sprites: {
-      other: any
-    };
-    abilities: {
-      ability: {
-        name: string;
-      }[];
-    stats: IStatsPokemon[];
-    types: {
-      slot: number;
-      type: {
-        name: string;
-        url: string;
-      };
-    }[];
-  }
+  };
+}
 
 export interface IStatsPokemon {
-    base_stat: number;
-    effort: number;
-    stat: {
+  base_stat: number;
+  effort: number;
+  stat: {
+    name: string;
+    url: string;
+  };
+}
+export interface IPokemon {
+  name: string;
+  url: string;
+  id: number;
+  height: number;
+  weight: number;
+  sprites: {
+    other: any;
+  };
+  abilities: IAbility[];
+  stats: IStatsPokemon[];
+  types: {
+    slot: number;
+    type: {
       name: string;
       url: string;
     };
-  }
+  }[];
+}
