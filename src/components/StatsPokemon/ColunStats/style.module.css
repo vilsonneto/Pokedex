@@ -1,0 +1,31 @@
+.colun {
+    float: left;
+    margin-right: -100%;
+    width: 15.1%;
+    display: inline-block;
+    margin: 0 1.5625% 1.25em 0;
+}
+
+.back {
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.quantity {
+    background: #30a7d7;
+    border: none;
+    height: 120px;
+    position: absolute;
+    z-index: 1;
+    width: 100%
+}
+
+.piece {
+    background: transparent;
+    border-bottom: 0.20em solid #a4a4a4;
+    height: 0.5em;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
