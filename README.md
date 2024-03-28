@@ -18,9 +18,9 @@
     <img width="800px" hight="300px" src="https://i.imgur.com/LisvcrS.png" /><br><br>
 </div>
 
-### ⚙️ Funcionalidades
+## ⚙️ Funcionalidades
 
-## **Configuração do projeto**
+### **Configuração do projeto**
 
 - [x]  Inicialize um novo projeto Next.js
 - [ ]  Configure as tecnologias necessárias:
@@ -28,7 +28,7 @@
     - [x]  Redux
     - [ ]  Jest
 
-## **Gestão Global do Estado**
+### **Gestão Global do Estado**
 
 - [x]  Crie uma loja Redux para gerenciar o estado do aplicativo
 - [ ]  Defina ações para
@@ -37,36 +37,36 @@
 - [x]  Defina redutores para lidar com as ações e atualizar o estado
 - [x]  Integre a loja Redux com a aplicação Next.js
 
-## **Página da lista de Pokémon**
+### **Página da lista de Pokémon**
 
 - [x]  Crie um componente para exibir a lista de Pokémons
 - [x]  Implemente a paginação para exibir um número limitado de Pokémons por página
 - [ ]  Adicione uma barra de pesquisa para permitir que os usuários procurem Pokémons por nome ou tipo
 - [x]  Inclua um link para a página Pokémon individual de cada Pokémon
 
-## **Página de detalhes do Pokémon**
+### **Página de detalhes do Pokémon**
 
 - [x]  Crie um componente para exibir os detalhes de um único Pokémon
 - [x]  Exibir o nome, imagem, tipo, habilidades e estatísticas
 - [x]  Implementar a navegação entre a página da lista de Pokémon e a página de Pokémon individual
 
-## **Integração de API**
+### **Integração de API**
 
 - [x]  Consumir a API Pokeapi.co para buscar dados de Pokémon
 - [x]  Lidar com quaisquer erros de API e exibir mensagens apropriadas
 - [ ]  Cache de respostas da API para melhorar a experiência do usuário
 
-## **Estilo**
+### **Estilo**
 
 - [x]  Implemente um design responsivo que se adapte a diferentes tamanhos de tela
 - [x]  Certifique-se de que o aplicativo tenha um design visualmente atraente e consistente
 
-## **Teste**
+### **Teste**
 
 - [ ]  Escreva testes de unidade para verificar a funcionalidade do aplicativo, incluindo ações de armazenamento Redux, redutores e manipulação de paginação
 - [ ]  Verifique se os dados estão armazenados corretamente na loja Redux e se a paginação está funcionando conforme o esperado
 
-## **Qualidade do código**
+### **Qualidade do código**
 
 - [x]  Siga as práticas recomendadas para codificação em Next.js, React e Redux
 - [x]  Mantenha o código organizado, limpo e de fácil manutenção
