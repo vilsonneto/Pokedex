@@ -7,7 +7,7 @@
     <p align="center">As informações são salvas em um estado global gerenciado pelo Redux. O aplicativo possui uma interface agradável e responsiva, que se adapta a dispositivos móveis e desktops. <s>O usuário pode pesquisar Pokémons pelo nome ou pelo tipo</s> e também navegar pelas páginas de resultados, com um limite de Pokémons por página.</p>
 </div>
 <div align="center">
-    <h4> 🚧  Pokedex 🚀 Projeto de encerramento do Q2 da Kenzie Academy Brasil.  🚧</h4>
+    <h4> 🚧  Pokedex  🚧</h4>
 </div>
 
 <div align="center">
