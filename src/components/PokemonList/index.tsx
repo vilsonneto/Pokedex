@@ -21,7 +21,7 @@ export const PokemonList = () => {
 
   useEffect(() => {
     // dispatch(fetchSearchPokemonAsync("wee"));
-    dispatch(fetchPokemonListAsync(offset));
+    dispatch(fetchPokemonListDetailsAsync(offset));
   }, [offset, dispatch]);
 
   return (
@@ -37,6 +37,8 @@ export const PokemonList = () => {
       )}
       
       <div className=" w-full flex justify-center">
+      {
+        pokemonList[0]?.id === 1 && (
         <motion.button
           whileTap={{ scale: 0.85 }}
           className="px-7 py-4 bg-blue-500 rounded-full text-white m-5"
@@ -45,17 +47,10 @@ export const PokemonList = () => {
           }}
         >
           Carregar mais
-        </motion.button>
+        </motion.button>)
+      }
 
-        
-        <button
-          className="px-7 py-4 bg-blue-500 rounded-full text-white m-5"
-          onClick={() => {
-            dispatch(fetchSearchPokemonAsync("weedle"));
-          }}
-        >
-          Fetch Search
-        </button>
+      
       </div>
     </div>
   );
