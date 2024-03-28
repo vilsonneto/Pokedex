@@ -6,6 +6,7 @@ import { IdPokemon } from "../IdPokemon";
 import { capitalize } from "@/utils/functions/capitalize";
 import { TagType } from "../TagType";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 interface IPokemonCard {
   pokemon: IPokemon;
@@ -38,14 +39,16 @@ export const PokemonCard = ({ pokemon }: IPokemonCard) => {
       viewport={{ once: true }}
     >
       <li className="w-52 mb-5">
+        <Link href={`/pokemon/${name}`}>
         <div className="bg-poke w-auto rounded-2xl cursor-pointer">
           <Image
             src={sprites.other["official-artwork"].front_default}
             alt={`${name} oficial artwork image`}
             width={200}
             height={200}
-          />
+            />
         </div>
+            </Link>
         <p className="text-sm text-gray-100 mb-4">
           <IdPokemon id={id} />
         </p>
