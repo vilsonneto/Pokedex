@@ -31,9 +31,9 @@
 ### **Gestão Global do Estado**
 
 - [x]  Crie uma loja Redux para gerenciar o estado do aplicativo
-- [ ]  Defina ações para
+- [x]  Defina ações para
     - [x]  Buscar dados de Pokémon
-    - [ ]  Lidar com consultas de pesquisa
+    - [x]  Lidar com consultas de pesquisa
 - [x]  Defina redutores para lidar com as ações e atualizar o estado
 - [x]  Integre a loja Redux com a aplicação Next.js
 
@@ -41,7 +41,7 @@
 
 - [x]  Crie um componente para exibir a lista de Pokémons
 - [x]  Implemente a paginação para exibir um número limitado de Pokémons por página
-- [ ]  Adicione uma barra de pesquisa para permitir que os usuários procurem Pokémons por nome ou tipo
+- [x]  Adicione uma barra de pesquisa para permitir que os usuários procurem Pokémons por nome ou tipo
 - [x]  Inclua um link para a página Pokémon individual de cada Pokémon
 
 ### **Página de detalhes do Pokémon**
@@ -54,7 +54,7 @@
 
 - [x]  Consumir a API Pokeapi.co para buscar dados de Pokémon
 - [x]  Lidar com quaisquer erros de API e exibir mensagens apropriadas
-- [ ]  Cache de respostas da API para melhorar a experiência do usuário
+- [x]  Cache de respostas da API para melhorar a experiência do usuário
 
 ### **Estilo**
 
