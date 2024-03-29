@@ -46,6 +46,8 @@ export const PokemonCard = ({ pokemon }: IPokemonCard) => {
                 alt={`${name} official artwork image`}
                 width={200}
                 height={200}
+                loading="lazy"
+                placeholder="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
               />
             )}
           </div>

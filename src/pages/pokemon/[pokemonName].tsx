@@ -3,12 +3,16 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 import "../../app/globals.css";
-import { Header } from "@/components/Header";
-import { PokemonDetails } from '../../components/PokemonDetails/index';
+import { PokemonDetails } from "../../components/PokemonDetails/index";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/redux/store";
+import { resetList } from "@/redux/modules/pokemonList/slice";
 
 export default function DynamicPage() {
   const router = useRouter();
   const { pokemonName } = router.query;
+
+  const dispatch = useDispatch<AppDispatch>();
 
   const [currentPokemon, setCurrentPokemon] = useState<IPokemon>();
 
@@ -19,19 +23,13 @@ export default function DynamicPage() {
       setCurrentPokemon(data);
     };
 
+    dispatch(resetList([]))
     fetchPokemon(String(pokemonName).toLowerCase());
-  }, [pokemonName]);
+  }, [pokemonName, dispatch]);
 
   return (
-    <>
-      <Header>{""}</Header>
-      <main className="flex flex-col items-center justify-between">
-        {
-            currentPokemon && (
-                <PokemonDetails pokemon={currentPokemon}/>
-            )
-        }
-      </main>
-    </>
+    <main className="flex flex-col items-center justify-between">
+      {currentPokemon && <PokemonDetails pokemon={currentPokemon} />}
+    </main>
   );
 }
