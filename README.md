@@ -78,6 +78,8 @@
 - [x] Linguagem de programação: TypeScript
 - [x] IDE: VScode
 - [x] React: Biblioteca JavaScript para construir interfaces de usuário.
+- [x] React Hook Form: Uma biblioteca leve e extensível para lidar com o estado do formulário e validação no React.
+- [x] Zod: Biblioteca de validação de schema para TypeScript que fornece segurança de tipo e geração dinâmica de schema.
 - [x] Redux: Biblioteca para gerenciar o estado global do aplicativo.
 - [x] Redux Toolkit: Conjunto de ferramentas para simplificar a configuração do Redux.
 - [x] Next.js: Framework para construir aplicativos React de renderização no lado do servidor.
