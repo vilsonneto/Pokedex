@@ -4,7 +4,7 @@
 
 <div align="center">
     <p align="center">🚀 Este projeto é um aplicativo web desenvolvido usando Next.js e Redux, que consome a API do pokeapi.co para exibir informações sobre Pokémons. O aplicativo permite que o usuário visualize uma lista de Pokémons e suas informações individuais, como nome, imagem, tipo, habilidades e estatísticas.</p>
-    <p align="center">As informações são salvas em um estado global gerenciado pelo Redux. O aplicativo possui uma interface agradável e responsiva, que se adapta a dispositivos móveis e desktops. <s>O usuário pode pesquisar Pokémons pelo nome ou pelo tipo</s> e também navegar pelas páginas de resultados, com um limite de Pokémons por página.</p>
+    <p align="center">As informações são salvas em um estado global gerenciado pelo Redux. O aplicativo possui uma interface agradável e responsiva, que se adapta a dispositivos móveis e desktops. O usuário pode pesquisar Pokémons pelo nome ou pelo tipo e também navegar pelas páginas de resultados, com um limite de Pokémons por página.</p>
 </div>
 <div align="center">
     <h4> 🚧  Pokedex  🚧</h4>
