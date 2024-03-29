@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import "../../app/globals.css";
 import { Header } from "@/components/Header";
-import { PokemonDetails } from '../../components/PokemonDetails/index';
+import { PokemonDetails } from "../../components/PokemonDetails/index";
 
 export default function DynamicPage() {
   const router = useRouter();
@@ -23,15 +23,8 @@ export default function DynamicPage() {
   }, [pokemonName]);
 
   return (
-    <>
-      <Header/>
-      <main className="flex flex-col items-center justify-between">
-        {
-            currentPokemon && (
-                <PokemonDetails pokemon={currentPokemon}/>
-            )
-        }
-      </main>
-    </>
+    <main className="flex flex-col items-center justify-between">
+      {currentPokemon && <PokemonDetails pokemon={currentPokemon} />}
+    </main>
   );
 }
