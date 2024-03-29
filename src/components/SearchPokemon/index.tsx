@@ -11,6 +11,7 @@ import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { searchPokemonSchema, TSearchPokemon } from "./schema";
+import { resetList } from "@/redux/modules/pokemonList/slice";
 
 type TInputs = {
   search: string;
@@ -29,11 +30,7 @@ export const SearchPokemon = () => {
   });
 
   async function onSubmit(data: TInputs) {
-    console.log(isSubmitting);
-    console.log(data);
-    // Replace this with a server action or fetch an API endpoint to authenticate
-
-    // dispatch(fetchSearchPokemonAsync(data.search));
+    dispatch(resetList([]))
     router.push({ pathname: "/", query: { search: data.search } });
   }
 

@@ -31,7 +31,6 @@ export const PokemonList = () => {
 
   useEffect(() => {
     const { search } = router.query;
-    console.log(search);
     if (!!search) {
       dispatch(fetchSearchPokemonAsync(String(search)));
       setOffset(0);
@@ -39,8 +38,8 @@ export const PokemonList = () => {
       pokemonList.length % 12 !== 0 && dispatch(resetList([]));
       dispatch(fetchPokemonListDetailsAsync(offset));
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [offset, dispatch, router]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [offset, dispatch, router.query.search]);
 
   return (
     <div className="w-full min-h-[70vh] max-w-[970px] bg-white rounded-b-lg">

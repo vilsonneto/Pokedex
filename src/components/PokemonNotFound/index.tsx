@@ -8,6 +8,7 @@ import { AppDispatch } from "@/redux/store";
 import { fetchPokemonListDetailsAsync } from "@/redux/modules/pokemonList/thunk";
 import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
+import { useRouter } from "next/router";
 
 interface IPokemonNotFoundProps {
   pokemon: IPokemon | (IPokemon | null)[];
@@ -15,7 +16,9 @@ interface IPokemonNotFoundProps {
 
 export const PokemonNotFound = ({ pokemon }: IPokemonNotFoundProps) => {
   const [load, setLoad] = useState(false);
-  const dispatch = useDispatch<AppDispatch>()
+  // const dispatch = useDispatch<AppDispatch>()
+  const router = useRouter();
+  
 
   useEffect(() => {
     setTimeout(() => setLoad(true), 1000);
@@ -37,7 +40,8 @@ export const PokemonNotFound = ({ pokemon }: IPokemonNotFoundProps) => {
             whileTap={{ scale: 0.85 }}
             className="flex items-center mt-7 px-7 py-4 bg-red rounded-full text-white m-5"
             onClick={() => {
-              dispatch(fetchPokemonListDetailsAsync(0))
+              // dispatch(fetchPokemonListDetailsAsync(0))
+              router.push("/");
             }}
           >
             <BsArrowLeftShort className="text-2xl mr-1" /> Return to home
