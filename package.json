@@ -12,6 +12,7 @@
     "test:ci": "jest --ci --coverage"
   },
   "dependencies": {
+    "@lottiefiles/react-lottie-player": "^3.5.3",
     "@reduxjs/toolkit": "^2.2.2",
     "framer-motion": "^11.0.22",
     "lottie-web": "^5.12.2",
