@@ -4,9 +4,10 @@ import { IPokemon } from "@/interfaces/pokemon";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { BsArrowLeftShort } from "react-icons/bs";
 import { useEffect, useState } from "react";
-import { useAppDispatch } from "@/redux/hooks";
+import { AppDispatch } from "@/redux/store";
 import { fetchPokemonListDetailsAsync } from "@/redux/modules/pokemonList/thunk";
 import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
 
 interface IPokemonNotFoundProps {
   pokemon: IPokemon | (IPokemon | null)[];
@@ -14,7 +15,7 @@ interface IPokemonNotFoundProps {
 
 export const PokemonNotFound = ({ pokemon }: IPokemonNotFoundProps) => {
   const [load, setLoad] = useState(false);
-  const dispatch = useAppDispatch()
+  const dispatch = useDispatch<AppDispatch>()
 
   useEffect(() => {
     setTimeout(() => setLoad(true), 1000);
