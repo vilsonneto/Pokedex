@@ -25,10 +25,9 @@ export const fetchPokemonListDetailsAsync = createAsyncThunk(
 
 async function fetchSearchPokemon(input: string) {
   try {
-    console.log("input:", input);
     input = input.toLowerCase();
     let dataPokemons = [];
-  
+
     if (typesPokemon.includes(input)) {
       const data = await fetch(`https://pokeapi.co/api/v2/type/${input}`);
       dataPokemons = await data.json();
@@ -38,30 +37,26 @@ async function fetchSearchPokemon(input: string) {
     } else {
       const data = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=1400`);
       dataPokemons = await data.json();
-      // await storage.setItem("@POKEMON_SEARCH", dataJson)
       dataPokemons = dataPokemons.results.filter((pokemon: IPokemon) => {
         const { name } = pokemon;
         const regex = new RegExp(input);
         return regex.test(name);
       });
     }
-  
-    // console.log("dataPokemons:", dataPokemons);
-  
-    const pokemonPromises = await dataPokemons.map(async (pokemon: IPokemon) => {
-      const pokemonDetails = await fetch(pokemon.url);
-      const pokemonJson = await pokemonDetails.json();
-      return pokemonJson;
-    });
-  
-    const pokemons = await Promise.all(pokemonPromises);
-    console.log("pokemons:", pokemons);
-    return pokemons;
-  } catch(err) {
-    console.error("Pokemon Not Found")
-  }
 
-  
+    const pokemonPromises = await dataPokemons.map(
+      async (pokemon: IPokemon) => {
+        const pokemonDetails = await fetch(pokemon.url);
+        const pokemonJson = await pokemonDetails.json();
+        return pokemonJson;
+      }
+    );
+
+    const pokemons = await Promise.all(pokemonPromises);
+    return pokemons;
+  } catch (err) {
+    console.error("Pokemon Not Found");
+  }
 }
 
 export const fetchSearchPokemonAsync = createAsyncThunk(
