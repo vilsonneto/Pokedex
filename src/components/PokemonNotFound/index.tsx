@@ -4,9 +4,10 @@ import { IPokemon } from "@/interfaces/pokemon";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { BsArrowLeftShort } from "react-icons/bs";
 import { useEffect, useState } from "react";
-import { AppDispatch, useDispatch } from "@/redux/store";
+import { AppDispatch } from "@/redux/store";
 import { fetchPokemonListDetailsAsync } from "@/redux/modules/pokemonList/thunk";
 import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
 
 interface IPokemonNotFoundProps {
   pokemon: IPokemon | (IPokemon | null)[];

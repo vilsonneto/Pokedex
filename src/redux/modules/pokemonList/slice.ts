@@ -43,7 +43,7 @@ export const pokemonListSlice = createSlice({
       .addCase(fetchSearchPokemonAsync.pending, (state) => {
         state.loading = true;
       })
-      .addCase(fetchSearchPokemonAsync.fulfilled, (state, action) => {
+      .addCase(fetchSearchPokemonAsync.fulfilled, (state, action:any) => {
         if (action.payload[0]?.name !== state.pokemonList[0]?.name) {
           state.pokemonList = action.payload;
         }

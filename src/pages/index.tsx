@@ -11,11 +11,9 @@ import { Player, Controls } from "@lottiefiles/react-lottie-player";
 export default function Home() {
 
   return (
-    <Provider store={store}>
       <main className="flex flex-col items-center justify-between">
         <Header/>
         <PokemonList />
       </main>
-    </Provider>
   );
 }
