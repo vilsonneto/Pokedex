@@ -5,10 +5,11 @@ import { AppDispatch } from "@/redux/store";
 import { useDispatch } from "react-redux";
 import { IoSearch } from "react-icons/io5";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export const SearchPokemon = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState("");
 
   return (
     <form
@@ -23,15 +24,16 @@ export const SearchPokemon = () => {
         placeholder="Search by name or type"
         type="text"
         id="search"
-        onChange={(event)=>setValue(event.target.value)}
+        onChange={(event) => setValue(event.target.value)}
       />
-      <button
+      <motion.button
+        whileTap={{ scale: 0.85 }}
         className="h-9 w-9 bg-yellow rounded-md flex justify-center items-center"
         name="search"
         type="submit"
       >
         <IoSearch />
-      </button>
+      </motion.button>
     </form>
   );
 };
