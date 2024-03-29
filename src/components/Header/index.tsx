@@ -4,12 +4,9 @@ import "tailwindcss/tailwind.css";
 
 import { AnimatedTextWord } from "../AnimatedTextWord";
 import Link from "next/link";
+import { SearchPokemon } from "../SearchPokemon";
 
-interface IHeaderProps {
-  children: React.ReactNode;
-}
-
-export const Header = ({ children }: IHeaderProps) => {
+export const Header = () => {
   const text = "Pokedex".split("");
 
   return (
@@ -20,7 +17,7 @@ export const Header = ({ children }: IHeaderProps) => {
           <AnimatedTextWord text="Pokedex" splitText="" />
         </h1>
       </Link>
-      {children}
+      <SearchPokemon />
     </header>
   );
 };
