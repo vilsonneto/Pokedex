@@ -1,9 +1,9 @@
 "use client";
 
-import { IPokemon } from "@/interfaces/pokemon";
+import { IPokemon } from "@/src/interfaces/pokemon";
 import Image from "next/image";
 import { IdPokemon } from "../IdPokemon";
-import { capitalize } from "@/utils/functions/capitalize";
+import { capitalize } from "@/src/utils/functions/capitalize";
 import { TagType } from "../TagType";
 import { PokemonCaracteristcs } from "../PokemonCaracteristcs";
 import { StatsPokemon } from "../StatsPokemon";
@@ -18,7 +18,7 @@ export const PokemonDetails = ({ pokemon }: IPokemonDetailsProps) => {
   return (
     <div className="w-full max-w-[970px] bg-white rounded-lg mt-10 p-5 text-gray-500">
       <p className="text-5xl w-full text-center mb-11 font-semibold">
-        {capitalize(name)}{" "}
+        {name && capitalize(name)}{" "}
         <span className="text-gray-200">
           <IdPokemon id={id} />
         </span>

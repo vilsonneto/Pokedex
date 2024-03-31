@@ -1,4 +1,4 @@
-import { IStatsPokemon } from "@/interfaces/pokemon";
+import { IStatsPokemon } from "@/src/interfaces/pokemon";
 import { ColunStats } from "./ColunStats";
 
 interface IStatsPokemonProps {
