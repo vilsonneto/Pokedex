@@ -23,10 +23,10 @@
 ### **Configuração do projeto**
 
 - [x]  Inicialize um novo projeto Next.js
-- [ ]  Configure as tecnologias necessárias:
+- [x]  Configure as tecnologias necessárias:
     - [x]  React
     - [x]  Redux
-    - [ ]  Jest
+    - [x]  Jest
 
 ### **Gestão Global do Estado**
 
@@ -63,8 +63,10 @@
 
 ### **Teste**
 
-- [ ]  Escreva testes de unidade para verificar a funcionalidade do aplicativo, incluindo ações de armazenamento Redux, redutores e manipulação de paginação
-- [ ]  Verifique se os dados estão armazenados corretamente na loja Redux e se a paginação está funcionando conforme o esperado
+- [x]  Crie ambiente de testes para que simula um ambiente de navegador completo com jest
+- [x]  Crie ambiente de testes adequado para testar código que não depende de recursos globais ou específicos do navegador com Node
+- [x]  Escreva testes de unidade para verificar a funcionalidade do aplicativo, incluindo ações de armazenamento Redux, redutores e manipulação de paginação
+- [x]  Verifique se os dados estão armazenados corretamente na loja Redux e se a paginação está funcionando conforme o esperado
 
 ### **Qualidade do código**
 
