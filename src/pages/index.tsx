@@ -11,11 +11,12 @@ import {
   resetList,
 } from "@/src/redux/modules/pokemonList/slice";
 import { AppDispatch, AppState } from "@/src/redux/store";
-import { motion } from "framer-motion";
-import { Player } from "@lottiefiles/react-lottie-player";
-import { PokemonNotFound } from "@/src/components/PokemonNotFound";
 import { useRouter } from "next/router";
+import { Player } from "@lottiefiles/react-lottie-player";
+import { motion } from "framer-motion";
+import { PokemonNotFound } from "@/src/components/PokemonNotFound";
 import { PokemonList } from "@/src/components/PokemonList";
+import { AiOutlineArrowUp } from "react-icons/ai";
 
 export default function Home() {
   const { loading, pokemonList, error } = useSelector<
@@ -74,6 +75,14 @@ export default function Home() {
           </div>
         )}
       </div>
+      <button
+        className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 text-xl rounded-full shadow-md p-3 bg-white"
+        onClick={() => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}
+      >
+        <AiOutlineArrowUp />
+      </button>
     </main>
   );
 }
