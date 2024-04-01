@@ -30,7 +30,7 @@ export const Menu = ({ children, isOpen, setOpen }: MenuProps) => {
       <nav
         className={`sm:flex sm:items-center sm:w-auto ${
           isOpen
-            ? "block fixed top-0 left-0 w-full h-full bg-dark-red text-white p-4 z-50"
+            ? "block fixed sm:static top-0 left-0 w-full h-full sm:w-auto sm:h-auto bg-dark-red text-white p-4 z-50"
             : "hidden"
         }`}
       >
