@@ -73,7 +73,8 @@
 - [x]  Siga as práticas recomendadas para codificação em Next.js, React e Redux
 - [x]  Mantenha o código organizado, limpo e de fácil manutenção
 - [x]  Certifique-se de que o código esteja bem comentado e fácil de entender
-- [x]  Otimização do SEO, compartilhamento de mídia social e experiência do usuário.
+- [x]  Otimize do SEO, realizando compartilhamento de mídia social e melhora na experiência do usuário.
+- [x]  Crie um Storybook para visualizar e interagir com seus componentes em um ambiente controlado, isolado de sua aplicação principal. Facilitando a documentação, teste e desenvolvimento de componentes, além de promover a reutilização e a consistência em sua base de código.
 
 
 ## 🚀 Tecnologias
