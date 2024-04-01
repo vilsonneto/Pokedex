@@ -17,7 +17,11 @@ type TInputs = {
   search: string;
 };
 
-export const SearchPokemon = () => {
+interface ISeachPokemonProps {
+  closeMenu: () => void
+}
+
+export const SearchPokemon = ({closeMenu}: ISeachPokemonProps) => {
   const dispatch = useDispatch<AppDispatch>();
 
   const router = useRouter();
@@ -32,6 +36,7 @@ export const SearchPokemon = () => {
   async function onSubmit(data: TInputs) {
     dispatch(resetList([]))
     router.push({ pathname: "/", query: { search: data.search } });
+    closeMenu()
   }
 
   return (
