@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import type { IPokemon } from "../../../interfaces/pokemon";
-import { typesPokemon } from "@/src/utils/data/typesPokemon";
+import { typesPokemon } from "../../../utils/data/typesPokemon";
 
 export async function fetchPokemonListDetails(offset: number) {
   const data = await fetch(

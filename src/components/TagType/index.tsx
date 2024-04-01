@@ -1,4 +1,4 @@
-import { capitalize } from "@/src/utils/functions/capitalize"
+import { capitalize } from "../../utils/functions/capitalize"
 import styles from './styles.module.css';
 interface ITagTypeProps {
     type: string

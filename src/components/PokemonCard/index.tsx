@@ -1,7 +1,7 @@
-import { IPokemon } from "@/src/interfaces/pokemon";
+import { IPokemon } from "../../interfaces/pokemon";
 import Image from "next/image";
 import { IdPokemon } from "../IdPokemon";
-import { capitalize } from "@/src/utils/functions/capitalize";
+import { capitalize } from "../../utils/functions/capitalize";
 import { TagType } from "../TagType";
 import { motion } from "framer-motion";
 import Link from "next/link";
