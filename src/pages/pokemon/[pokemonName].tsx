@@ -1,12 +1,12 @@
-import { IPokemon } from "@/interfaces/pokemon";
+import { IPokemon } from "@/src/interfaces/pokemon";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 import "../../app/globals.css";
 import { PokemonDetails } from "../../components/PokemonDetails/index";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "@/redux/store";
-import { resetList } from "@/redux/modules/pokemonList/slice";
+import { AppDispatch } from "@/src/redux/store";
+import { resetList } from "@/src/redux/modules/pokemonList/slice";
 
 export default function DynamicPage() {
   const router = useRouter();

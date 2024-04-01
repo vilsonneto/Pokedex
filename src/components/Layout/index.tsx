@@ -1,6 +1,6 @@
 "use client";
 
-import { Header } from "@/components/Header";
+import { Header } from "@/src/components/Header";
 
 import type { ReactNode } from "react";
 

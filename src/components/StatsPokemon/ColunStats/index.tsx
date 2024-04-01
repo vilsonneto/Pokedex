@@ -1,4 +1,4 @@
-import { IStatsPokemon } from "@/interfaces/pokemon";
+import { IStatsPokemon } from "@/src/interfaces/pokemon";
 import styles from "./style.module.css";
 import { motion } from "framer-motion"
 

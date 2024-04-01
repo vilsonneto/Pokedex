@@ -1,7 +1,7 @@
 "use client";
 
-import { IAbility } from "@/interfaces/pokemon";
-import { ajustCaseListAbilities } from "@/utils/functions/ajustCaseAbilities";
+import { IAbility } from "@/src/interfaces/pokemon";
+import { ajustCaseListAbilities } from "@/src/utils/functions/ajustCaseAbilities";
 
 interface IPokemonCaracteristcsProps {
   abilities: IAbility[];

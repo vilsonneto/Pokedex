@@ -1,8 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import type { IPokemon } from "../../../interfaces/pokemon";
-import { typesPokemon } from "@/utils/data/typesPokemon";
+import { typesPokemon } from "@/src/utils/data/typesPokemon";
 
-async function fetchPokemonListDetails(offset: number) {
+export async function fetchPokemonListDetails(offset: number) {
   const data = await fetch(
     `https://pokeapi.co/api/v2/pokemon?limit=12&offset=${offset}`
   );
@@ -15,6 +15,7 @@ async function fetchPokemonListDetails(offset: number) {
     }
   );
   const pokemons = await Promise.all(pokemonPromises);
+  console.log(pokemons)
   return pokemons;
 }
 
@@ -23,7 +24,7 @@ export const fetchPokemonListDetailsAsync = createAsyncThunk(
   async (offset: number) => await fetchPokemonListDetails(offset)
 );
 
-async function fetchSearchPokemon(input: string) {
+export async function fetchSearchPokemon(input: string) {
   try {
     input = input.toLowerCase();
     let dataPokemons = [];
