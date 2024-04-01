@@ -1,7 +1,7 @@
-import { IPokemon } from "@/interfaces/pokemon";
+import { IPokemon } from "@/src/interfaces/pokemon";
 import Image from "next/image";
 import { IdPokemon } from "../IdPokemon";
-import { capitalize } from "@/utils/functions/capitalize";
+import { capitalize } from "@/src/utils/functions/capitalize";
 import { TagType } from "../TagType";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -36,8 +36,9 @@ export const PokemonCard = ({ pokemon }: IPokemonCard) => {
         },
       }}
       viewport={{ once: true }}
+      data-testid="pokemon-card"
     >
-      <li className="w-52 mb-5">
+      <li className="w-52 mb-5" >
         <Link href={`/pokemon/${name}`}>
           <div className="bg-poke w-auto rounded-2xl cursor-pointer">
             {image && (
@@ -55,11 +56,11 @@ export const PokemonCard = ({ pokemon }: IPokemonCard) => {
         <p className="text-sm text-gray-100 mb-4">
           <IdPokemon id={id} />
         </p>
-        <h3 className="text-lg font-bold text-gray-400 mb-1">
-          {capitalize(name)}
+        <h3 className="text-lg font-bold text-gray-400 mb-1" data-testid="pokemon-name">
+          {name && capitalize(name)}
         </h3>
         <div className="flex text-sm">
-          {types.map(({ type }) => (
+          {types && types.map(({ type }) => (
             <TagType type={type.name} key={type.name} />
           ))}
         </div>

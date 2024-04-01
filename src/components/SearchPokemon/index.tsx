@@ -1,7 +1,7 @@
 "use client";
 
-import { fetchSearchPokemonAsync } from "@/redux/modules/pokemonList/thunk";
-import { AppDispatch } from "@/redux/store";
+import { fetchSearchPokemonAsync } from "@/src/redux/modules/pokemonList/thunk";
+import { AppDispatch } from "@/src/redux/store";
 import { useDispatch } from "react-redux";
 import { IoSearch } from "react-icons/io5";
 import { useState } from "react";
@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { searchPokemonSchema, TSearchPokemon } from "./schema";
-import { resetList } from "@/redux/modules/pokemonList/slice";
+import { resetList } from "@/src/redux/modules/pokemonList/slice";
 
 type TInputs = {
   search: string;
