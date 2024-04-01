@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-interface IAnimatedTextWord {
+export interface IAnimatedTextWord {
     text: string
     splitText: "" | " "
 }

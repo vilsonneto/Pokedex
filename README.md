@@ -73,6 +73,7 @@
 - [x]  Siga as práticas recomendadas para codificação em Next.js, React e Redux
 - [x]  Mantenha o código organizado, limpo e de fácil manutenção
 - [x]  Certifique-se de que o código esteja bem comentado e fácil de entender
+- [x]  Otimização do SEO, compartilhamento de mídia social e experiência do usuário.
 
 
 ## 🚀 Tecnologias
