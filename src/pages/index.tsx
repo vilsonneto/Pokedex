@@ -54,7 +54,7 @@ export default function Home() {
             />
           </div>
         )}
-        
+
         {!pokemonList ? (
           <PokemonNotFound pokemon={pokemonList} />
         ) : (
@@ -75,6 +75,7 @@ export default function Home() {
           </div>
         )}
       </div>
+      
       <button
         className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 text-xl rounded-full shadow-md p-3 bg-white"
         onClick={() => {

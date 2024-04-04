@@ -31,3 +31,8 @@ export interface IPokemon {
     };
   }[];
 }
+
+export interface ISimplePokemon {
+  name: string;
+  url: string;
+}
