@@ -19,6 +19,7 @@ export interface IPokemon {
   height: number;
   weight: number;
   sprites: {
+    front_default: string;
     other: any;
   };
   abilities: IAbility[];
@@ -30,4 +31,9 @@ export interface IPokemon {
       url: string;
     };
   }[];
+}
+
+export interface ISimplePokemon {
+  name: string;
+  url: string;
 }

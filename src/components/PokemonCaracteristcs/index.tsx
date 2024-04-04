@@ -1,7 +1,7 @@
 "use client";
 
 import { IAbility } from "@/src/interfaces/pokemon";
-import { ajustCaseListAbilities } from "@/src/utils/functions/ajustCaseAbilities";
+import { ajustCase } from "@/src/utils/functions/ajustCaseAbilities";
 
 interface IPokemonCaracteristcsProps {
   abilities: IAbility[];
@@ -37,9 +37,9 @@ export const PokemonCaracteristcs = ({
       <div className="w-1/2">
         <h3 className="text-base text-white">Abilities</h3>
         <ul>
-          {ajustCaseListAbilities(abilities).map((ability) => (
-            <li className="text-lg mt-3" key={ability}>
-              {ability}
+          {abilities.map(({ability}) => (
+            <li className="text-lg mt-3" key={ability.name}>
+              {ajustCase(ability.name)}
             </li>
           ))}
         </ul>

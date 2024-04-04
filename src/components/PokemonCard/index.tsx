@@ -5,6 +5,7 @@ import { capitalize } from "../../utils/functions/capitalize";
 import { TagType } from "../TagType";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { ajustCase } from "@/src/utils/functions/ajustCaseAbilities";
 
 interface IPokemonCard {
   pokemon: IPokemon;
@@ -12,7 +13,7 @@ interface IPokemonCard {
 
 export const PokemonCard = ({ pokemon }: IPokemonCard) => {
   const { sprites, name, types, id } = pokemon;
-  const image = sprites?.other?.["official-artwork"]?.front_default;
+  const image = sprites.other["official-artwork"]?.front_default || sprites.other["home"].front_default || "/missingno.png";
 
   const randomX = Math.random() < 0.5 ? -50 : 50;
   const randomY = Math.random() < 0.5 ? -50 : 50;
@@ -57,7 +58,7 @@ export const PokemonCard = ({ pokemon }: IPokemonCard) => {
           <IdPokemon id={id} />
         </p>
         <h3 className="text-lg font-bold text-gray-400 mb-1" data-testid="pokemon-name">
-          {name && capitalize(name)}
+          {ajustCase(name)}
         </h3>
         <div className="flex text-sm">
           {types && types.map(({ type }) => (

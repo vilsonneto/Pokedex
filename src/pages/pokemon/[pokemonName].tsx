@@ -1,35 +1,62 @@
-import { IPokemon } from "@/src/interfaces/pokemon";
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import type { InferGetStaticPropsType, GetStaticProps } from "next";
+import Head from "next/head";
 
 import "../../app/globals.css";
 import { PokemonDetails } from "../../components/PokemonDetails/index";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "@/src/redux/store";
-import { resetList } from "@/src/redux/modules/pokemonList/slice";
+import { ISimplePokemon } from "../../interfaces/pokemon";
+import { ajustCase } from "@/src/utils/functions/ajustCaseAbilities";
 
-export default function DynamicPage() {
-  const router = useRouter();
-  const { pokemonName } = router.query;
-
-  const dispatch = useDispatch<AppDispatch>();
-
-  const [currentPokemon, setCurrentPokemon] = useState<IPokemon>();
-
-  useEffect(() => {
-    const fetchPokemon = async (name: string | string[] | undefined) => {
-      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
-      const data = await response.json();
-      setCurrentPokemon(data);
-    };
-
-    dispatch(resetList([]))
-    fetchPokemon(String(pokemonName).toLowerCase());
-  }, [pokemonName, dispatch]);
-
+export default function Pokemon({
+  pokemon,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <main className="flex flex-col items-center justify-between">
-      {currentPokemon && <PokemonDetails pokemon={currentPokemon} />}
-    </main>
+    <>
+      <Head>
+        <title>{ajustCase(pokemon.name)} | Pokedex</title>
+      </Head>
+      <main className="flex flex-col items-center justify-between">
+        <PokemonDetails pokemon={pokemon} />
+      </main>
+    </>
   );
 }
+
+export async function getStaticPaths() {
+  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=3000");
+  if (!res.ok) {
+    throw new Error(`Error fetching data: ${res.status} - ${res.statusText}`);
+  }
+
+  const data = await res.json();
+
+  if (!Array.isArray(data.results)) {
+    throw new Error(
+      `Expected an array of Pokemon, but received something else.`
+    );
+  }
+
+  const pokemons = data.results as ISimplePokemon[];
+
+  const paths = pokemons.map((pokemon) => ({
+    params: { pokemonName: pokemon.name },
+  }));
+
+  return { paths, fallback: false };
+}
+
+export const getStaticProps = async ({
+  params,
+}: {
+  params: { pokemonName: string };
+}) => {
+  const pokemonName = params.pokemonName as string;
+
+  const ajustCasePokemon = String(pokemonName).toLowerCase();
+  const response = await fetch(
+    `https://pokeapi.co/api/v2/pokemon/${ajustCasePokemon}`
+  );
+  const data = await response.json();
+
+  return { props: { pokemon: data } };
+};

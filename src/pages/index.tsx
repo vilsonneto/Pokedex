@@ -7,8 +7,7 @@ import {
   fetchSearchPokemonAsync,
 } from "@/src/redux/modules/pokemonList/thunk";
 import {
-  IPokemonListState,
-  resetList,
+  IPokemonListState
 } from "@/src/redux/modules/pokemonList/slice";
 import { AppDispatch, AppState } from "@/src/redux/store";
 import { useRouter } from "next/router";
@@ -17,9 +16,10 @@ import { motion } from "framer-motion";
 import { PokemonNotFound } from "@/src/components/PokemonNotFound";
 import { PokemonList } from "@/src/components/PokemonList";
 import { AiOutlineArrowUp } from "react-icons/ai";
+import Head from "next/head";
 
 export default function Home() {
-  const { loading, pokemonList, error } = useSelector<
+  const { loading, pokemonList } = useSelector<
     AppState,
     IPokemonListState
   >((state) => state.pokemonList);
@@ -27,21 +27,24 @@ export default function Home() {
   const router = useRouter();
 
   const [offset, setOffset] = useState<number>(0);
+  const { search } = router.query || {};
 
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    const { search } = router.query || {};
     if (!!search) {
       dispatch(fetchSearchPokemonAsync(String(search)));
       setOffset(0);
     } else {
-      pokemonList.length % 12 !== 0 && dispatch(resetList([]));
       dispatch(fetchPokemonListDetailsAsync(offset));
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [offset, dispatch, router.query?.search]);
+  }, [offset, dispatch, search]);
+
   return (
+    <>
+    <Head>
+      <title>Pokedex</title>
+    </Head>
     <main className="flex flex-col items-center justify-between">
       <div className="w-full min-h-[70vh] max-w-[970px] bg-white rounded-b-lg">
         {loading && (
@@ -55,13 +58,14 @@ export default function Home() {
             />
           </div>
         )}
-        {pokemonList.length === 0 ? (
+
+        {pokemonList.length == 0 ? (
           <PokemonNotFound pokemon={pokemonList} />
         ) : (
           <PokemonList />
         )}
 
-        {pokemonList[9]?.id === 10 && (
+        {!search && (
           <div className=" w-full flex justify-center">
             <motion.button
               whileTap={{ scale: 0.85 }}
@@ -75,6 +79,7 @@ export default function Home() {
           </div>
         )}
       </div>
+      
       <button
         className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 text-xl rounded-full shadow-md p-3 bg-white"
         onClick={() => {
@@ -84,5 +89,6 @@ export default function Home() {
         <AiOutlineArrowUp />
       </button>
     </main>
+    </>
   );
 }

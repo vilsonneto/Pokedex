@@ -3,10 +3,10 @@
 import { IPokemon } from "@/src/interfaces/pokemon";
 import Image from "next/image";
 import { IdPokemon } from "../IdPokemon";
-import { capitalize } from "@/src/utils/functions/capitalize";
 import { TagType } from "../TagType";
 import { PokemonCaracteristcs } from "../PokemonCaracteristcs";
 import { StatsPokemon } from "../StatsPokemon";
+import { ajustCase } from "@/src/utils/functions/ajustCaseAbilities";
 
 interface IPokemonDetailsProps {
   pokemon: IPokemon;
@@ -18,7 +18,7 @@ export const PokemonDetails = ({ pokemon }: IPokemonDetailsProps) => {
   return (
     <div className="w-full max-w-[970px] bg-white rounded-lg mt-10 p-5 text-gray-500">
       <p className="text-5xl w-full text-center mb-11 font-semibold">
-        {name && capitalize(name)}{" "}
+        {ajustCase(name)}{" "}
         <span className="text-gray-200">
           <IdPokemon id={id} />
         </span>
@@ -30,7 +30,7 @@ export const PokemonDetails = ({ pokemon }: IPokemonDetailsProps) => {
             <Image
               fill
               priority
-              src={sprites.other["official-artwork"].front_default}
+              src={sprites.other["official-artwork"].front_default || sprites.other["home"].front_default || "/missingno.png" }
               alt={`${name} oficial artwork image`}
               sizes="(max-width: 420px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
