@@ -39,7 +39,7 @@ export const NoImage: Story = {
   args: {
     pokemon: {
       ...pokemon,
-      sprites: {other: undefined},
+      sprites: { front_default: "", other: undefined},
     },
   },
 };
