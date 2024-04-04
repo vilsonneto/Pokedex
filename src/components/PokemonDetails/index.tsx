@@ -30,7 +30,7 @@ export const PokemonDetails = ({ pokemon }: IPokemonDetailsProps) => {
             <Image
               fill
               priority
-              src={sprites.other["official-artwork"].front_default}
+              src={sprites.other["official-artwork"].front_default || sprites.other["home"].front_default || "/missingno.png" }
               alt={`${name} oficial artwork image`}
               sizes="(max-width: 420px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />

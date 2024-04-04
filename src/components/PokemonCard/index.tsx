@@ -12,7 +12,7 @@ interface IPokemonCard {
 
 export const PokemonCard = ({ pokemon }: IPokemonCard) => {
   const { sprites, name, types, id } = pokemon;
-  const image = sprites?.other?.["official-artwork"]?.front_default;
+  const image = sprites.other["official-artwork"]?.front_default || sprites.other["home"].front_default || "/missingno.png";
 
   const randomX = Math.random() < 0.5 ? -50 : 50;
   const randomY = Math.random() < 0.5 ? -50 : 50;
