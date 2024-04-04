@@ -15,7 +15,6 @@ export async function fetchPokemonListDetails(offset: number) {
     }
   );
   const pokemons = await Promise.all(pokemonPromises);
-  console.log(pokemons)
   return pokemons;
 }
 
