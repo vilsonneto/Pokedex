@@ -16,6 +16,7 @@ import { motion } from "framer-motion";
 import { PokemonNotFound } from "@/src/components/PokemonNotFound";
 import { PokemonList } from "@/src/components/PokemonList";
 import { AiOutlineArrowUp } from "react-icons/ai";
+import Head from "next/head";
 
 export default function Home() {
   const { loading, pokemonList } = useSelector<
@@ -40,6 +41,10 @@ export default function Home() {
   }, [offset, dispatch, search]);
 
   return (
+    <>
+    <Head>
+      <title>Pokedex</title>
+    </Head>
     <main className="flex flex-col items-center justify-between">
       <div className="w-full min-h-[70vh] max-w-[970px] bg-white rounded-b-lg">
         {loading && (
@@ -84,5 +89,6 @@ export default function Home() {
         <AiOutlineArrowUp />
       </button>
     </main>
+    </>
   );
 }
