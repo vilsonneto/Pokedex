@@ -1,11 +1,7 @@
 import { IAbility } from "@/src/interfaces/pokemon";
 import { capitalize } from "./capitalize";
 
-export const ajustCaseListAbilities = (abilities: IAbility[]) => {
-  const newList = abilities.map(({ ability }) => {
-    let newCase = String(ability.name.replace("-", " "));
+export const ajustCase = (word: string) => {
+    let newCase = String(word.replaceAll("-", " "));
     return capitalize(newCase);
-  });
-
-  return newList;
 };

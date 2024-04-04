@@ -5,7 +5,7 @@ import Head from "next/head";
 import "../../app/globals.css";
 import { PokemonDetails } from "../../components/PokemonDetails/index";
 import { ISimplePokemon } from "../../interfaces/pokemon";
-import { capitalize } from "@/src/utils/functions/capitalize";
+import { ajustCase } from "@/src/utils/functions/ajustCaseAbilities";
 
 export default function Pokemon({
   pokemon,
@@ -13,7 +13,7 @@ export default function Pokemon({
   return (
     <>
       <Head>
-        <title>{capitalize(pokemon.name)} | Pokedex</title>
+        <title>{ajustCase(pokemon.name)} | Pokedex</title>
       </Head>
       <main className="flex flex-col items-center justify-between">
         <PokemonDetails pokemon={pokemon} />

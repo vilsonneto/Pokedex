@@ -1,6 +1,7 @@
 import { IStatsPokemon } from "@/src/interfaces/pokemon";
 import styles from "./style.module.css";
 import { motion } from "framer-motion"
+import { ajustCase } from "@/src/utils/functions/ajustCaseAbilities";
 
 interface IColunStatsProps {
     stats: IStatsPokemon
@@ -11,7 +12,7 @@ export const ColunStats = ({stats}:IColunStatsProps) => {
   return (
     <li className={`${styles.colun}`}>
       <ul className={`${styles.back}`}>
-        <motion.li 
+        <motion.li
         initial={{
             top: '100%'
           }}
@@ -38,7 +39,7 @@ export const ColunStats = ({stats}:IColunStatsProps) => {
         <li className={`${styles.piece}`}></li>
         <li className={`${styles.piece}`}></li>
       </ul>
-      <p className="text-gray-400 text-[10px] sm:text-sm font-bold text-center">{stats.stat.name}</p>
+      <p className="text-gray-400 text-[10px] sm:text-sm font-bold text-center">{ajustCase(stats.stat.name)}</p>
     </li>
   );
 };

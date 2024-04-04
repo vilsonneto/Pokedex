@@ -7,8 +7,7 @@ import {
   fetchSearchPokemonAsync,
 } from "@/src/redux/modules/pokemonList/thunk";
 import {
-  IPokemonListState,
-  resetList,
+  IPokemonListState
 } from "@/src/redux/modules/pokemonList/slice";
 import { AppDispatch, AppState } from "@/src/redux/store";
 import { useRouter } from "next/router";
@@ -55,7 +54,7 @@ export default function Home() {
           </div>
         )}
 
-        {!pokemonList ? (
+        {pokemonList.length == 0 ? (
           <PokemonNotFound pokemon={pokemonList} />
         ) : (
           <PokemonList />
