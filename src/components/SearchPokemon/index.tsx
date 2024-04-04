@@ -26,6 +26,7 @@ export const SearchPokemon = ({closeMenu}: ISeachPokemonProps) => {
   const {
     handleSubmit,
     register,
+    reset,
     formState: { errors, isSubmitting, isDirty, isValid },
   } = useForm<TInputs>({
     resolver: zodResolver(searchPokemonSchema),
@@ -33,6 +34,7 @@ export const SearchPokemon = ({closeMenu}: ISeachPokemonProps) => {
 
   async function onSubmit(data: TInputs) {
     dispatch(resetList([]))
+    reset()
     router.push({ pathname: "/", query: { search: data.search } });
     closeMenu()
   }

@@ -27,18 +27,18 @@ export default function Home() {
   const router = useRouter();
 
   const [offset, setOffset] = useState<number>(0);
+  const { search } = router.query || {};
 
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    const { search } = router.query || {};
     if (!!search) {
       dispatch(fetchSearchPokemonAsync(String(search)));
       setOffset(0);
     } else {
       dispatch(fetchPokemonListDetailsAsync(offset));
     }
-  }, [offset, dispatch, router.query?.search]);
+  }, [offset, dispatch, search]);
 
   return (
     <main className="flex flex-col items-center justify-between">
@@ -54,13 +54,14 @@ export default function Home() {
             />
           </div>
         )}
-        {pokemonList.length === 0 ? (
+        
+        {!pokemonList ? (
           <PokemonNotFound pokemon={pokemonList} />
         ) : (
           <PokemonList />
         )}
 
-        {pokemonList[9]?.id === 10 && (
+        {!search && (
           <div className=" w-full flex justify-center">
             <motion.button
               whileTap={{ scale: 0.85 }}
