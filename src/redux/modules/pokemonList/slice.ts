@@ -29,8 +29,10 @@ export const pokemonListSlice = createSlice({
         state.loading = true;
       })
       .addCase(fetchPokemonListDetailsAsync.fulfilled, (state, action) => {
-        if (action.payload[0]?.name !== state.pokemonList[0]?.name) {
+        if (action.payload[0]?.name !== "bulbasaur") {
           state.pokemonList.push(...action.payload);
+        } else {
+          state.pokemonList = action.payload
         }
         state.loading = false;
       })

@@ -19,7 +19,7 @@ import { PokemonList } from "@/src/components/PokemonList";
 import { AiOutlineArrowUp } from "react-icons/ai";
 
 export default function Home() {
-  const { loading, pokemonList, error } = useSelector<
+  const { loading, pokemonList } = useSelector<
     AppState,
     IPokemonListState
   >((state) => state.pokemonList);
@@ -36,11 +36,10 @@ export default function Home() {
       dispatch(fetchSearchPokemonAsync(String(search)));
       setOffset(0);
     } else {
-      pokemonList.length % 12 !== 0 && dispatch(resetList([]));
       dispatch(fetchPokemonListDetailsAsync(offset));
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [offset, dispatch, router.query?.search]);
+
   return (
     <main className="flex flex-col items-center justify-between">
       <div className="w-full min-h-[70vh] max-w-[970px] bg-white rounded-b-lg">
